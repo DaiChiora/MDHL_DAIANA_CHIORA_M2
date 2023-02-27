@@ -1,22 +1,37 @@
 .card {
     margin: 2rem;
-    background-color: aqua;
+    background-color: wheat;
+}
+.card-img-top {
+    height: 85%;
+    width: 90%;
+    box-shadow: -10px -5px 10px rgb(109, 106, 106)
+}
+.card-link {
+    text-decoration: none;
+    border: 1px solid gray;
+    padding: 0.5rem;
+    box-shadow: -10px -5px 10px rgb(109, 106, 106);
+    color: black;
 }
 footer img {
     width: 30px;
 }
+footer h2 {
+    padding-right: 3rem;
+}
 .contact {
     margin:3rem;
 }
-header {
+/* header {
     height: 10vh;
 }
 main {
     height: 80vh;
-}
-footer {
+} */
+/* footer {
     height: 10vh;
-}
+} */
 .details {
     border: 2px solid red;
 }
