@@ -28,16 +28,39 @@ footer h2 {
 .contact {
     margin:3rem;
 }
+.img-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-div img {
+    width: 95%;
+    margin-top: 2px;
+}
+.card-body {
+    text-align: center;
+}
 
-.details {
-    border: 2px solid red;
+@media (min-width: 600px) {
+    #details-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 20rem;
+    }
+    .img-div {
+        width: 50%;
+    }
+    .img-div img {
+        width: 70%;
+        box-shadow: -15px -15px 30px rgb(109, 106, 106);
+    }
+    .card-body h3 {
+        padding-bottom: 2rem;
+    }
 }
-.details h3 {
-    padding-bottom: 2rem;
-}
-.details img {
-    box-shadow: -15px -15px 30px rgb(109, 106, 106);
-}
+
 @media (max-width: 425px) {
     .footer-container {
         display: flex;
