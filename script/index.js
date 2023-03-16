@@ -12,20 +12,19 @@ function dibujarTarjetas(array, contenedor) {
     let CARD = ''
     array.forEach (elemento => {
     CARD +=
-      `<div class="col-3">
-            <div class="card" style="width: 15rem; height: 25rem;">
-                <div class="d-flex justify-content-center align-items-center">
-                    <img src=${elemento.image} class="card-img-top" alt="music_concert">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title text-center pb-3">${elemento.name}</h5>
-                    <p class="card-text text-center">${elemento.description}</p>
-                </div>
-                <div class="card-body d-flex justify-content-between align-items-end align-content-end">
-                    <p>Price: ${elemento.price}</p>
-                    <a href="./details.html?id=${elemento._id}" class="card-link">Ver más</a>
-                </div>
-      </div>`
+    `<div class="card" style="width: 15rem; height: 25rem;">
+    <div class="d-flex justify-content-center align-items-center">
+    <img src=${elemento.image} class="card-img-top">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">${elemento.name}</h5>
+      <p class="card-text">${elemento.description}</p>
+    </div>
+    <div class="card-body">
+      <p>Price: ${elemento.price}</p>
+      <a href="./details.html?id=${elemento._id}" class="card-link">Ver más</a>
+    </div>
+  </div>`
   })
   contenedor.innerHTML = CARD
 
