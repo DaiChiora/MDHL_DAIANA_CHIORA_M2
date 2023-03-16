@@ -18,22 +18,22 @@ console.log(detalle)
 
 
 let html = ''
-html += `<div class="card mb-3" style="max-width: 540px;">
+html += `<div class="card mb-3" style="max-width: 60rem;">
 <div class="row g-0">
-  <div class="col-md-4">
-    <img src="${eventoSeleccionado.image}" class="img-fluid rounded-start" alt="...">
+  <div class="d-flex col-md-5">
+    <img src="${eventoSeleccionado.image}" class="img-fluid rounded-start">
   </div>
-  <div class="col-md-8">
+  <div class="col-md-7">
     <div class="card-body">
       <h5 class="card-title">${eventoSeleccionado.name}</h5>
       <p class="card-text">${eventoSeleccionado.description}</p>
-      <p class="card-text">${eventoSeleccionado.category}</p>
-      <p class="card-text">${eventoSeleccionado.capacity}</p>
-      <p class="card-text">${eventoSeleccionado.place}</p>
-      <p class="card-text">${eventoSeleccionado.date}</p>
-      <p class="card-text">${eventoSeleccionado.price}</p>
+      <p class="card-text"><span>Category:</span> ${eventoSeleccionado.category}</p>
+      <p class="card-text"><span>Capacity:</span> ${eventoSeleccionado.capacity}</p>
+      <p class="card-text"><span>Place: </span>${eventoSeleccionado.place}</p>
+      <p class="card-text"><span>Date: </span>${eventoSeleccionado.date}</p>
+      <p class="card-text"><span>Price: </span>${eventoSeleccionado.price}</p>
       <a href="./index.html" class="card-link">Return</a>
-    </div>
+      </div>
   </div>
 </div>
 </div>`
