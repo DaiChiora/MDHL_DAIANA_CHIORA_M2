@@ -1,14 +1,18 @@
 let events = data.events
 let contenedorSection = document.getElementById('section')
-const SEARCH = document.getElementById('search')
+let SEARCH = document.getElementById('search')
 dibujarTarjetas(events, contenedorSection)
 
 
 function dibujarTarjetas(array, contenedor) {
+  if (array.length == 0) {
+    contenedor.innerHTML = '<h2>No hay coincidencias</h2>'
+    return
+  }
     let CARD = ''
     array.forEach (elemento => {
     CARD +=
-      `<div class="cards-container d-flex flex-wrap justify-content-around" width=100%>
+      `<div>
       <div class="card" style="width: 15rem; height: 25rem;">
     <div class="d-flex justify-content-center align-items-center">
     <img src=${elemento.image} class="card-img-top" alt="music_concert">
@@ -19,7 +23,7 @@ function dibujarTarjetas(array, contenedor) {
     </div>
     <div class="card-body d-flex justify-content-between align-items-end align-content-end">
       <p>Price: ${elemento.price}</p>
-      <a href="./details.html" class="card-link">Ver más</a>
+      <a href="./details.html?id=${elemento._id}" class="card-link">Ver más</a>
     </div>
     </div>`
   })
@@ -27,19 +31,56 @@ function dibujarTarjetas(array, contenedor) {
 
 }
 
+//Filtro por texto
 
 function filtroTexto (array, texto) {
   let arrayFiltrado = array.filter (elemento => elemento.name.toLowerCase().includes(texto.toLowerCase()))
+
   return arrayFiltrado
 }
 
-SEARCH.addEventListener('input', () => {
-  let arrayFiltrado = filtroTexto(events, SEARCH.value)
-  dibujarTarjetas(arrayFiltrado, contenedorSection)
-})
 
+//Creación checkbox
+let checkContainer = document.getElementById('check')
+function crearCheck (array, contenedor){
+  let categorias = array.map (elemento => elemento.category)
+  let setCategorias = new Set(categorias)
+  let check =''
+  setCategorias.forEach (elemento => {
+    check += `<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="${elemento}" value="${elemento}">
+    <label class="form-check-label" for="${elemento}">${elemento}</label>
+</div>`
+  })
+contenedor.innerHTML = check
+}
+crearCheck(events, checkContainer)
 
+//Filtro Checkbox
 
+function filtroCheck(array) {
+  let checkboxs = Array.from(document.querySelectorAll('input[type="checkbox"]'))
+  let categoriaCheck = checkboxs.filter (check => check.checked)
+  if (categoriaCheck.length == 0) {
+    return array
+  }
+  let value = categoriaCheck.map (categoria => categoria.value)
+  let arrayFiltrado = array.filter (elemento => value.includes(elemento.category))
+  return arrayFiltrado}
+
+//Eventos
+
+  SEARCH.addEventListener('input', () => {
+    let primerFiltro = filtroTexto(events, SEARCH.value)
+    let segundoFiltro = filtroCheck(primerFiltro)
+    dibujarTarjetas(segundoFiltro, contenedorSection)
+  })
+
+  let check = document.getElementById("check")
+  check.addEventListener ("change", ()=>{
+    let primerFiltro = filtroTexto(events, SEARCH.value)
+    let segundoFiltro = filtroCheck(primerFiltro)
+    dibujarTarjetas(segundoFiltro, contenedorSection)})
 
 
 
