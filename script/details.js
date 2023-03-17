@@ -1,5 +1,7 @@
-
-
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+.then(response => response.json())
+.then(data => {
+  let events = data.events
 console.log(location)
 let queryString = location.search
 
@@ -38,3 +40,5 @@ html += `<div class="card mb-3" style="max-width: 60rem;">
 </div>
 </div>`
 detalle.innerHTML = html
+
+});
