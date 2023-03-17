@@ -1,3 +1,5 @@
+let data1 = fetch("https://mindhub-xj03.onrender.com/api/amazing")
+console.log(data1);
 let events = data.events
 let contenedorSection = document.getElementById('section')
 let SEARCH = document.getElementById('search')
