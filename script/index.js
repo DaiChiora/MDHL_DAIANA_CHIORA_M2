@@ -33,6 +33,7 @@ crearCheck(events, checkContainer)
 function crearCheck (array, contenedor){
   let categorias = array.map (elemento => elemento.category)
   let setCategorias = new Set(categorias)
+  console.log(setCategorias)
   let check =''
   setCategorias.forEach (elemento => {
     check += `<div class="form-check form-check-inline">

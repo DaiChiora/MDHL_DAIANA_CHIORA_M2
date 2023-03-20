@@ -53,6 +53,10 @@ span {
 
     font-weight: bold;
 }
+.table {
+    background-color: wheat;
+    border: 2px solid black;
+}
 
 @media (min-width: 600px) {
     #details-card {
